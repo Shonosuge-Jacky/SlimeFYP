@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92822125b506aa4fbe9e47e20f85371, type: 3}
+  m_Name: StreetLight
+  m_EditorClassIdentifier: 
+  gameObject: {fileID: 6972641039305632016, guid: ae1831aae1c49fc41a5d4ab74aaaf7e1, type: 3}
+  gameObjectName: Street Light
+  floorState: 1
+  positionOffset: {x: 0, y: -0.5, z: 0}
+  rotationOffset: {x: 0, y: 0, z: 0, w: 0}
+  stateArea: 0
+  leadArea: 0
+  daytimeFloorState: 1
+  nighttimeFloorState: 1

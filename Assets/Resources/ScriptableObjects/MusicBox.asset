@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92822125b506aa4fbe9e47e20f85371, type: 3}
+  m_Name: MusicBox
+  m_EditorClassIdentifier: 
+  gameObject: {fileID: 7523496105849511673, guid: d14bbb74df933b844bf6c3634d5f91d3, type: 3}
+  gameObjectName: Music Box
+  floorState: 2
+  positionOffset: {x: 0, y: 0.05, z: 0}
+  rotationOffset: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+  stateArea: 5
+  leadArea: 12
+  daytimeFloorState: 2
+  nighttimeFloorState: 1

@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f2f7925b8a3b2c45a71a26ad3b708cd, type: 3}
+  m_Name: FloorSetting 1
+  m_EditorClassIdentifier: 
+  MinX: 1
+  MinY: 1
+  MaxX: 100
+  MaxY: 100
+  FloorObjects:
+  - X: 20
+    Y: 20
+    FloorGameObjectType: 3
+  - X: 20
+    Y: 60
+    FloorGameObjectType: 3
+  - X: 80
+    Y: 40
+    FloorGameObjectType: 3
+  - X: 10
+    Y: 50
+    FloorGameObjectType: 1
+  - X: 70
+    Y: 10
+    FloorGameObjectType: 1
+  - X: 70
+    Y: 70
+    FloorGameObjectType: 1
+  - X: 50
+    Y: 50
+    FloorGameObjectType: 2
+  - X: 50
+    Y: 15
+    FloorGameObjectType: 2
+  - X: 50
+    Y: 85
+    FloorGameObjectType: 2
