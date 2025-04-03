@@ -127,6 +127,13 @@ public class GridManager : MonoBehaviour
             for (int j = z - floorGameObject.leadArea ; j < z + floorGameObject.leadArea +1; j++){
                 if(i != x || j != z){
                     // Debug.Log("Move" + i + " " + j);
+                    if(floorGameObject.nighttimeFloorState == FloorState.Sleep)
+                    {
+                        floorGridsStorage.SetFloorState(new Vector3Int(i, 0, j), FloorState.Idle, FloorState.Move, new Vector3(x,0,z) - new Vector3(i,0,j) );
+                        floorGridsStorage.SetFloorDebug(new Vector3Int(i, 0, j), debugs.idle, debugs.arrow);
+                        floorGridsStorage.AddFloorGridToDayNightEventListener(new Vector3Int(i, 0, j), daynightEvent);
+                        continue;
+                    }
                     floorGridsStorage.SetFloorState(new Vector3Int(i, 0, j), FloorState.Move, FloorState.Idle, new Vector3(x,0,z) - new Vector3(i,0,j) );
                     floorGridsStorage.SetFloorDebug(new Vector3Int(i, 0, j), debugs.arrow, debugs.idle);
                     floorGridsStorage.AddFloorGridToDayNightEventListener(new Vector3Int(i, 0, j), daynightEvent);
@@ -139,7 +146,12 @@ public class GridManager : MonoBehaviour
             for (int j = z - floorGameObject.stateArea; j < z + floorGameObject.stateArea+1; j++){
                 // Debug.Log("Music" + i + " " + j);
                 floorGridsStorage.SetFloorState(new Vector3Int(i, 0, j), floorGameObject.daytimeFloorState, floorGameObject.nighttimeFloorState);
-                if(floorGameObject.daytimeFloorState == FloorState.Gym){ continue; }
+                // if(floorGameObject.daytimeFloorState == FloorState.Gym){ continue; }
+                if(floorGameObject.nighttimeFloorState == FloorState.Sleep)
+                {
+                    floorGridsStorage.SetFloorDebug(new Vector3Int(i, 0, j), debugs.idle, debugs.state);
+                    continue;
+                }
                 floorGridsStorage.SetFloorDebug(new Vector3Int(i, 0, j), debugs.state, debugs.idle);
                 // floorGridsStorage.RemoveFloorGridToDayNightEventListener(new Vector3Int(i, 0, j), daynightEvent);
             }

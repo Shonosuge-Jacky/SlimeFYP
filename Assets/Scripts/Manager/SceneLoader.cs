@@ -1,6 +1,9 @@
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// Script responsible for loading scene async. It allow loading into the game from menu scene.
+/// -------------------------------------------------------------------///
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -58,8 +61,8 @@ public class SceneLoader : MonoBehaviour
         {
             Debug.Log($"Scene '{sceneName}' finished loading.");
             // Trigger your event here for when the scene finishes loading
-            LoadUI.transform.GetChild(0).GetComponent<Image>().DOFade(0, 0.5f);
-            DOVirtual.DelayedCall(0.5f, ()=> LoadUI.SetActive(false));
+            // LoadUI.transform.GetChild(0).GetComponent<Image>().DOFade(0, 0.5f);
+            // DOVirtual.DelayedCall(0.5f, ()=> LoadUI.SetActive(false));
             if(Menu)
                 Destroy(Menu);
         };

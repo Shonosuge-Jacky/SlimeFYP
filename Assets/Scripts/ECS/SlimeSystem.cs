@@ -94,6 +94,10 @@ public partial struct SlimeSystem : ISystem
                     slime.RotateDirection = IsWithinRange(transform.Rotation.value.y, -1*slime.TargetTransform.Rotation.value.y);
                     // Debug.Log(slime.TargetTransform.Rotation);
                     break;
+                case FloorState.Sleep:
+                    slime.CurrSubState  = SlimeSubState.Idle;
+                    slime.CurrState = SlimeState.Sleep;
+                    break;
             }
             slime.TargetTransform.Position = new float3(slime.TargetTransform.Position.x, 0, slime.TargetTransform.Position.z);
             // Debug.Log("-----");

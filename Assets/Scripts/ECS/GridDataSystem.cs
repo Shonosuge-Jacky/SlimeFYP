@@ -40,6 +40,12 @@ public partial struct GridDataSystem : ISystem
                 {
                     for(int j = s.Y - o.leadArea; j < s.Y + o.leadArea; j ++)
                     {
+                        if(o.nighttimeFloorState == FloorState.Sleep)
+                        {
+                            NativeHashMapFunctions.ChangeValue(Int2ToFloorState, new int2(i + floorSetting.x * 150, j + floorSetting.y * 150), 
+                            new GridDatum(FloorState.Idle, FloorState.Move, new Vector3(s.X,0,s.Y) - new Vector3(i,0,j)));
+                            continue;
+                        }
                         NativeHashMapFunctions.ChangeValue(Int2ToFloorState, new int2(i + floorSetting.x * 150, j + floorSetting.y * 150), 
                             new GridDatum(FloorState.Move, FloorState.Idle, new Vector3(s.X,0,s.Y) - new Vector3(i,0,j)));
                     }
@@ -212,12 +218,14 @@ public struct GridDatum
         DayState = Day;
         NightState = Night;
         Direction = Quaternion.identity;
+        // GridManager.Instance.daynightEvent.AddListener(this);
     }
     public GridDatum(FloorState Day, FloorState Night, Vector3 Dir){
         State = Day;
         DayState = Day;
         NightState = Night;
         Direction = Quaternion.LookRotation(Dir);
+        // GridManager.Instance.daynightEvent.AddListener(this);
         // Debug.Log(Direction);
     }
     public GridDatum(FloorState DayNight, Vector3 Dir){
@@ -226,5 +234,16 @@ public struct GridDatum
         NightState = DayNight;
         Direction = Quaternion.LookRotation(Dir);
         // Debug.Log(Direction);
+    }
+
+    public void OnDayNightChange(DayNight dayNight)
+    {
+        if(dayNight == DayNight.Day)
+        {
+            State = DayState;
+        }else
+        {
+            State = NightState;
+        }
     }
 }

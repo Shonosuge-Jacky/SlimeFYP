@@ -35,7 +35,7 @@ public class FloorGrid{
     }
 
     public void OnDayNightChange(DayNight daynight){
-        // Debug.Log(cellPosition.ToString() + "Day Night Change, now " + daynight.ToString());
+        // Debug.Log(cellPosition.ToString() + dayNightFloorState.dayTimeFloorState +  " - Day Night Change, now " + dayNightFloorState.nightTimeFloorState);
         floorState = daynight == DayNight.Day? dayNightFloorState.dayTimeFloorState : dayNightFloorState.nightTimeFloorState;
         debug.GetComponent<Renderer>().material = daynight == DayNight.Day ? dayTimeDebugMaterial : nightTimeDebugMaterial;
     }
@@ -146,7 +146,8 @@ public enum FloorState{
     Idle,
     Music,
     Read,
-    Gym
+    Gym,
+    Sleep
 }
 
 public struct DayNightFloorState{

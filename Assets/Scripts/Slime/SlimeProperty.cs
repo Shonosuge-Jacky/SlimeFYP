@@ -9,7 +9,8 @@ public enum SlimeState{
     Chat,
     Music,
     Read,
-    Gym
+    Gym,
+    Sleep
 }
 public struct SlimeValue{
     public int MusicValue;

@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92822125b506aa4fbe9e47e20f85371, type: 3}
   m_Name: StreetLight
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 6972641039305632016, guid: ae1831aae1c49fc41a5d4ab74aaaf7e1, type: 3}
+  gameObject: {fileID: 6972641039305632016, guid: ae1831aae1c49fc41a5d4ab74aaaf7e1,
+    type: 3}
   gameObjectName: Street Light
-  floorState: 1
+  floorState: 5
   positionOffset: {x: 0, y: -0.5, z: 0}
   rotationOffset: {x: 0, y: 0, z: 0, w: 0}
-  stateArea: 0
-  leadArea: 0
+  stateArea: 5
+  leadArea: 14
   daytimeFloorState: 1
-  nighttimeFloorState: 1
+  nighttimeFloorState: 5

@@ -1,7 +1,15 @@
-using System;
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// GameDataCenter act as central data reteiver. 
+/// All the data in this script are static and cannot be amend.
+/// All other scripts are allowed to obtain any data in this script.
+/// -------------------------------------------------------------------///
+
 using UnityEngine;
 
-// public struct 
+/// <summary>
+/// Game Data Center. All other scripts are allowed to obtain any data in this script.
+/// </summary>
 public struct GameDataCenter
 {
     [Header("GameSetting")]
@@ -83,8 +91,6 @@ public struct GameDataCenter
         confused    = Resources.Load<Material>("Texture/Blue/confused"),
         emmm        = Resources.Load<Material>("Texture/Blue/emmm"),
     };
-
-    // [Header("PlayerProperty")]
 
 
 

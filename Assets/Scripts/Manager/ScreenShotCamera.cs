@@ -1,3 +1,7 @@
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// Script for function of taking screenshot from the game.
+/// -------------------------------------------------------------------///
 using UnityEngine;
 using System;
 

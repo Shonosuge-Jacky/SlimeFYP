@@ -11,6 +11,7 @@ public class FloorSettingUIManager : MonoBehaviour
     public Button JukeBox;
     public Button Dumbbell;
     public Button BookShelf;
+    public Button StreetLight;
     public GameObject Menu;
     List<RoomSetting> roomSettings = new List<RoomSetting>();
 
@@ -25,6 +26,7 @@ public class FloorSettingUIManager : MonoBehaviour
         JukeBox.onClick.AddListener(()=> {SetObject(FloorGameObjectType.Jukebox);});
         Dumbbell.onClick.AddListener(()=> {SetObject(FloorGameObjectType.Dumbbell);});
         BookShelf.onClick.AddListener(()=> {SetObject(FloorGameObjectType.BookShelf);});
+        StreetLight.onClick.AddListener(()=> {SetObject(FloorGameObjectType.StreetLight);});
     }
     public void SetToChange(int _RoomNumber, int _ObjectNumber)
     {

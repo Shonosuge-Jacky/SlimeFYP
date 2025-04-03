@@ -1,3 +1,8 @@
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// Store all the general events for all object, including the event call for ECS and OOP system to communicate.
+/// Allow Calling event with parameters.
+/// -------------------------------------------------------------------///
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Entities;
@@ -37,8 +42,14 @@ public enum EventType
     UpdateValueEvent
 }
 
+/// <summary>
+/// Event Center
+/// </summary>
 public class EventCenter
 {
+    /// <summary>
+    /// Singleton for Event Center
+    /// </summary>
     private static EventCenter _Instance;
     
     public static EventCenter Instance{
@@ -53,6 +64,11 @@ public class EventCenter
         
     }
 
+    /// <summary>
+    /// Communication Pipeline for ECS system specifically.
+    /// Whenever OOP system want to send event to ECS system, it will be sent through a speicific pipeline.
+    /// This pipeline will instantiate a specfic entity with Event Componenet in the ECS system.
+    /// </summary>
     private Entity ECSCommunicationPipeline{
         get
         {
@@ -66,6 +82,12 @@ public class EventCenter
 
     private Dictionary<EventType, IEventInfo> EventDictionary = new Dictionary<EventType, IEventInfo>();
 
+    /// <summary>
+    /// Add Listener, with parameter
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="type"></param>
+    /// <param name="action"></param>
     public void AddEventListener<T>(EventType type, UnityAction<T> action)
     {
         if( EventDictionary.ContainsKey(type))
@@ -76,6 +98,12 @@ public class EventCenter
             EventDictionary.Add(type, new EventInfo<T>( action ));
         }
     }
+
+    /// <summary>
+    /// Add Listener, without parameter
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="action"></param>
     public void AddEventListener(EventType type, UnityAction action)
     {
         if( EventDictionary.ContainsKey(type))
@@ -87,6 +115,11 @@ public class EventCenter
         }
     }
 
+    /// <summary>
+    /// Remove Event Listener
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="action"></param>
     public void RemoveEventListener(EventType type, UnityAction action)
     {
         if( EventDictionary.ContainsKey(type))
@@ -95,6 +128,12 @@ public class EventCenter
         }
     }
 
+    /// <summary>
+    /// Boardcast Event, with parameter
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="type"></param>
+    /// <param name="parameter"></param>
     public void BoardcastEvent<T>(EventType type, T parameter)
     {
         if (EventDictionary.ContainsKey(type))
@@ -103,6 +142,11 @@ public class EventCenter
                 ((EventInfo<T>)EventDictionary[type]).actions.Invoke(parameter);
         }
     }
+
+    /// <summary>
+    /// Boardcast Event
+    /// </summary>
+    /// <param name="type"></param>
     public void BoardcastEvent(EventType type)
     {
         if (EventDictionary.ContainsKey(type))
@@ -112,11 +156,18 @@ public class EventCenter
         }
     }
 
+    /// <summary>
+    /// Clear all stored event and their listener.
+    /// </summary>
     public void ClearEventListeners()
     {
         EventDictionary.Clear();
     }
 
+    /// <summary>
+    /// Clear all event of a specific event
+    /// </summary>
+    /// <param name="type"></param>
     public void ClearEventListener(EventType type)
     {
         if( EventDictionary.ContainsKey(type))
@@ -125,6 +176,11 @@ public class EventCenter
         }
     }
 
+    /// <summary>
+    /// Function for sending event to ECS system.
+    /// </summary>
+    /// <param name="type"></param>
+    /// <returns></returns>
     public IEnumerator SendEventToECS(EventType type){
         EntityManager em = World.DefaultGameObjectInjectionWorld.EntityManager;
         if(type == EventType.ChangeGameModeToExplore){

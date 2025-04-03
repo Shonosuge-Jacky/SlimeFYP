@@ -19,28 +19,28 @@ MonoBehaviour:
   FloorObjects:
   - X: 20
     Y: 20
-    FloorGameObjectType: 2
+    FloorGameObjectType: 3
   - X: 20
-    Y: 60
-    FloorGameObjectType: 2
+    Y: 50
+    FloorGameObjectType: 3
+  - X: 20
+    Y: 80
+    FloorGameObjectType: 3
+  - X: 50
+    Y: 20
+    FloorGameObjectType: 3
+  - X: 50
+    Y: 50
+    FloorGameObjectType: 3
+  - X: 50
+    Y: 80
+    FloorGameObjectType: 3
   - X: 80
-    Y: 40
-    FloorGameObjectType: 2
-  - X: 10
+    Y: 20
+    FloorGameObjectType: 3
+  - X: 80
     Y: 50
-    FloorGameObjectType: 1
-  - X: 70
-    Y: 10
-    FloorGameObjectType: 1
-  - X: 70
-    Y: 70
-    FloorGameObjectType: 1
-  - X: 50
-    Y: 50
-    FloorGameObjectType: 2
-  - X: 50
-    Y: 15
-    FloorGameObjectType: 2
-  - X: 50
-    Y: 85
-    FloorGameObjectType: 2
+    FloorGameObjectType: 3
+  - X: 80
+    Y: 80
+    FloorGameObjectType: 3

@@ -12,4 +12,14 @@ public class SlimeAIManager : MonoBehaviour
         // Debug.Log("GetCalled");
         behaviorTree.SendEvent<object>("CallEvent", by);
     }
+
+    public void GetInspect(Transform by)
+    {
+        behaviorTree.SendEvent<object>("InspectEvent", by);
+    }
+
+    public void GetPet()
+    {
+        behaviorTree.SendEvent("PetEvent");
+    }
 }

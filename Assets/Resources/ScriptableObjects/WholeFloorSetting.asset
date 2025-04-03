@@ -18,18 +18,43 @@ MonoBehaviour:
     y: 0
     amount: 50
     floorSetting: {fileID: 11400000, guid: e2dbf017fc0d7274484a6f5195efd8aa, type: 2}
-  - RoomID: 1
+  - RoomID: 2
     x: 1
     y: 0
     amount: 50
     floorSetting: {fileID: 11400000, guid: fc46f1aaf1030994b888ad3f3af2ce5f, type: 2}
-  - RoomID: 1
+  - RoomID: 3
     x: 0
     y: 1
     amount: 50
     floorSetting: {fileID: 11400000, guid: 73aa4eba1617efd4bb135f62236505db, type: 2}
-  - RoomID: 1
+  - RoomID: 4
     x: 1
     y: 1
     amount: 50
     floorSetting: {fileID: 11400000, guid: a32c8ca17973d8a4d9de70a9a08fca6b, type: 2}
+  - RoomID: 5
+    x: 2
+    y: 0
+    amount: 50
+    floorSetting: {fileID: 11400000, guid: c39da7d4f592f994380ccce67903666b, type: 2}
+  - RoomID: 6
+    x: 2
+    y: 1
+    amount: 50
+    floorSetting: {fileID: 11400000, guid: 7ce72443b9e598043b3e54e2a6b6ad03, type: 2}
+  - RoomID: 7
+    x: 2
+    y: 2
+    amount: 50
+    floorSetting: {fileID: 11400000, guid: 505531e749d566f439c28008d3b88396, type: 2}
+  - RoomID: 8
+    x: 0
+    y: 2
+    amount: 50
+    floorSetting: {fileID: 11400000, guid: 75cc66e71f8cffb4d953ac06f8a6c4d3, type: 2}
+  - RoomID: 9
+    x: 1
+    y: 2
+    amount: 50
+    floorSetting: {fileID: 11400000, guid: 6da8daaf56f6e524db466c29ff31a872, type: 2}

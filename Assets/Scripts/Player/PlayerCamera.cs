@@ -1,8 +1,12 @@
 using UnityEngine;
 using DG.Tweening;
+using BehaviorDesigner.Runtime.Tasks.Unity.UnityCharacterController;
 
 public class PlayerCamera : MonoBehaviour
 {
+    [SerializeField] private Camera secondaryCamera; // Assign in Inspector
+    private Camera mainCamera;
+    private bool usingMainCamera = true;
     [Header("Property")]
     public float standingY = 0;
     public float crouchingY = -2f;
@@ -23,9 +27,17 @@ public class PlayerCamera : MonoBehaviour
     public float inspectDistance;
     GameObject selectedRoom;
     bool pointed;
+
+    SlimeAIManager currPointingSlime;
+    public float inpsectDistance = 5;
+    public float moveCameraSpeed = 5f;
+    
     // Start is called before the first frame update
     void Start()
     {
+        mainCamera = Camera.main;
+        mainCamera.enabled = true;
+        secondaryCamera.enabled = false;
         // EventCenter.Instance.AddEventListener(EventType.ChangeGameModeToInspect, ()=>{gameObject.transform.eulerAngles = new Vector3(180,0,0);});
         // EventCenter.Instance.AddEventListener(EventType.ChangeGameModeToExplore, ()=>{gameObject.transform.eulerAngles = new Vector3(0,0,0);});
     }
@@ -46,6 +58,7 @@ public class PlayerCamera : MonoBehaviour
                 CheckInteractRaycastToRoom();
             }
             CheckZoom();
+            CheckSwitch();
         }
         
         
@@ -97,14 +110,18 @@ public class PlayerCamera : MonoBehaviour
     {
         if(GameManager.Instance.UIManager.GetPointing())
         {
+            currPointingSlime = HitInfo.transform.parent.parent.GetComponent<SlimeAIManager>();
             GameManager.Instance.UIManager.UpdateSlimeInfoPanel(HitInfo.transform.parent.parent.GetComponent<SlimeProperty>());
             if(Input.GetKeyDown(KeyCode.Space))
             {
                 GameManager.Instance.UIManager.SetisShowingInformaiton(true);
+                // currPointingSlime.GetInspect(transform);
+                // StartInspect();
             }
         }else
         {
             GameManager.Instance.UIManager.SetisShowingInformaiton(false);
+            currPointingSlime = null;
         }
     }
 
@@ -126,6 +143,54 @@ public class PlayerCamera : MonoBehaviour
             selectedRoom = null;
             pointed = false;
         }
+    }
+
+    void CheckSwitch()
+    {
+        if (Input.GetKey(KeyCode.Tab)) // While Tab is held down
+        {
+            mainCamera.enabled = false;
+            secondaryCamera.enabled = true;
+        }
+        else // When Tab is released
+        {
+            mainCamera.enabled = true;
+            secondaryCamera.enabled = false;
+        }
+    }
+
+
+    void StartInspect()
+    {
+        
+        GameManager.Instance.isControlable = false;
+        GameManager.Instance.isPausable = false;
+        // Get the position of the Slime
+        Vector3 slimePosition = currPointingSlime.transform.position;
+
+        // Calculate the direction from the camera to the slime
+        Vector3 directionToSlime = (slimePosition - transform.position).normalized;
+
+        // Calculate the target position
+        Vector3 targetPosition = slimePosition - directionToSlime * inpsectDistance;
+        targetPosition.y = -3;
+
+        Debug.Log("Start Inspect" + targetPosition);
+
+        StartCoroutine(MoveCamera(targetPosition));
+    }
+
+    private System.Collections.IEnumerator MoveCamera(Vector3 targetPosition)
+    {
+        while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
+        {
+            // Move the camera towards the target position
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveCameraSpeed * Time.deltaTime);
+            yield return null; // Wait for the next frame
+        }
+
+        // Ensure the camera reaches the exact target position
+        transform.position = targetPosition;
     }
 
 }

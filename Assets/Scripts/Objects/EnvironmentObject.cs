@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// Parent class for objects in the game enviornment such as Jukebox and Streelight.
+/// -------------------------------------------------------------------///
 using UnityEngine;
 
 abstract public class EnvironmentObject : MonoBehaviour
 {
     public void OnDayNightChange(DayNight daynight){
-        Debug.Log(daynight);
         if(daynight == DayNight.Day){
             ChangeToDay();
         }else{

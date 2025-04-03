@@ -1,16 +1,23 @@
-using System;
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// A Game Manager responsible for:
+/// 1. changing the gamemode (inspect and explore).
+/// 2. controlling if the game is paused and controllable.
+/// 3. instantiating OOP object in the gameworld when it is changed to explore mode.
+/// -------------------------------------------------------------------///
+
 using System.Collections;
-using System.Collections.Generic;
 using Unity.Entities;
 using Unity.Transforms;
 using UnityEngine;
-using Unity.Mathematics;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public UIManager UIManager { get; private set; }
+    public TimeManager TimeManager { get; private set; }
     public bool isControlable;
     public bool isPausable;
     public GameMode CurrGameMode;
@@ -21,6 +28,8 @@ public class GameManager : MonoBehaviour
     private Coroutine countdownCoroutine;
 
     public RoomProperty SelectedRoom;
+
+    bool firstLoaded = false;
 
 
     private void Awake()
@@ -34,6 +43,7 @@ public class GameManager : MonoBehaviour
         Instance = this;
 
         UIManager = GetComponentInChildren<UIManager>();
+        TimeManager = GetComponentInChildren<TimeManager>();
         // m_OverheadCamera = FindObjectOfType<OverheadCamera>().gameObject;
         m_OOPSlimeParent = GameObject.FindGameObjectWithTag("SlimeParent");
 
@@ -45,6 +55,12 @@ public class GameManager : MonoBehaviour
     }
     
     private void Update(){
+        if(!firstLoaded)
+        {
+            SceneLoader.Instance.LoadUI.transform.GetChild(0).GetComponent<Image>().DOFade(0, 0.5f);
+            DOVirtual.DelayedCall(0.5f, ()=> SceneLoader.Instance.LoadUI.SetActive(false));
+            firstLoaded = true;
+        }
         if (CurrGameMode == GameMode.Explore)
         {
             if (countdownCoroutine == null)
@@ -65,6 +81,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Function responsible for changing the game mode (inspect and explore)
+    /// </summary>
     public void ChangeGameMode(){
         isControlable = false;
         isPausable = false;
@@ -88,6 +107,11 @@ public class GameManager : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Function responsible for creating OOP gameobject when gamemode is changed to explore mode.
+    /// </summary>
+    /// <param name="slime">ECS component SlimeComponent</param>
+    /// <param name="slimeTransform">ECS component slime's LocalTransform</param>
     public static void CreateOOPGameObject(RefRO<SlimeComponent> slime, RefRO<LocalTransform> slimeTransform){
         Debug.Log(slime.ValueRO.CurrSubState);
         if(!m_OOPSlimeParent){
@@ -97,6 +121,11 @@ public class GameManager : MonoBehaviour
             GetComponent<SlimeProperty>().Instantiate(slimeTransform.ValueRO.Position, slime.ValueRO.CurrState, slime.ValueRO.CurrValue);
         
     }
+
+    /// <summary>
+    /// Trigger a UpdateValue Event every two seconds.
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator TriggerEventEveryTwoSeconds()
     {
         while (CurrGameMode == GameMode.Explore)

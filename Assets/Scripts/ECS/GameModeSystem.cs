@@ -29,17 +29,19 @@ public partial struct GameModeSystem : ISystem
     public void OnUpdate(ref SystemState state)
     {
         EntityCommandBuffer ecb = new EntityCommandBuffer(Allocator.TempJob);
-        UnityEngine.Debug.Log("GameModeSystem Onupdate");
+        
         int selectedRoomID = GameManager.Instance.SelectedRoom.myRoomID;
+        UnityEngine.Debug.Log("GameModeSystem Onupdate" + selectedRoomID);
         // new 
         foreach ( var (temp, eventEntity) in SystemAPI.Query<ChangeGameModeToExploreEventComponent>().WithEntityAccess()){
             UnityEngine.Debug.Log("GameModeSystem Onupdate - ChangeGameModeToExplore");
             foreach ( var( slime, transform, entity ) in
              SystemAPI.Query<RefRO<SlimeComponent>, RefRO<LocalTransform>>().WithAll<SlimeComponent>().WithEntityAccess()){
+                Debug.Log(slime.ValueRO.RoomID);
                 if(slime.ValueRO.RoomID != selectedRoomID){
                     continue;
                 }
-                Debug.Log("GameModeSystem Onupdate - Add Hidden and DisableRendering");
+                // Debug.Log("GameModeSystem Onupdate - Add Hidden and DisableRendering");
                 // transform.ValueRW.Position = new float3(0,-100,0);
                 // ecb.AddComponent<Disabled>(entity);
                 ecb.DestroyEntity(entity);
@@ -72,6 +74,7 @@ public partial struct GameModeSystem : ISystem
                 Debug.Log(spawnedEntity);
                 ecb.SetComponent(spawnedEntity, new SlimeComponent 
                 { 
+                    RoomID = selectedRoomID,
                     // CurrSlimeState = SlimeState.Idle,
                     MoveSpeed = GameDataCenter._SlimeMoveSpeed,
                     TurnSpeed = math.radians(GameDataCenter._SlimeTurnSpeed_Slow),

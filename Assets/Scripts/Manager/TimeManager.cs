@@ -1,3 +1,8 @@
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// Script for managing the time in the game world. Allow change in day and night and boardcast corresponding event when time is changed.
+/// Also responsible for displaying the time in the game.
+/// -------------------------------------------------------------------///
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -69,6 +74,9 @@ public class TimeManager : MonoBehaviour
         
     }
     
+    /// <summary>
+    /// Function to update the time each frame.
+    /// </summary>
     void UpdateTimeSystem(){
         currTime.AddMinutes(timeSpeed * Time.deltaTime);
         currTime.currHourMin_24 = currTime.currHour_24 + currTime.currMinutes / 60f;
@@ -93,6 +101,10 @@ public class TimeManager : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Function that allow game time flow speed to change.
+    /// </summary>
+    /// <param name="timeSpeedSlider"></param>
     public void ChangeTimeSpeed(Slider timeSpeedSlider){
         timeSpeed = timeSpeedSlider.value;
     }
