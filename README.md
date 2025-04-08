@@ -39,16 +39,16 @@ In Inspect Mode:
 
 ## Features
 
-- Swichable Mode for ECS and OOP
-This game features two distinct modes: Explore Mode and Inspect Mode. Each mode offers a different level of detail for observing the world. Explore Mode allows players to freely view an overview of the entire world, while Inspect Mode enables players to examine the details of the AIs.
-- Customizable World
-Players are able to customize the world and what objects to present in the game world.
-- Slime AI Behavior
-The Slime AI operates through three core states: idle (random wandering), walking (moving toward objects), and behavior (object interactions). Each interaction boosts specific stats—books increase intelligence, dumbbells improve strength, and music enhances appreciation.
-- Slime AI Interaction
-During Explore Mode, pressing 'L' triggers a dynamic response from nearby slimes
-- Slime AI Appearance
-The Slime AI changes emoji and color according to their property and state.
+- Swichable Mode for ECS and OOP\
+This game features two distinct modes: Explore Mode and Inspect Mode. Each mode offers a different level of detail for observing the world. Explore Mode allows players to freely view an overview of the entire world, while Inspect Mode enables players to examine the details of the AIs.\
+- Customizable World\
+Players are able to customize the world and what objects to present in the game world.\
+- Slime AI Behavior\
+The Slime AI operates through three core states: idle (random wandering), walking (moving toward objects), and behavior (object interactions). Each interaction boosts specific stats—books increase intelligence, dumbbells improve strength, and music enhances appreciation.\
+- Slime AI Interaction\
+During Explore Mode, pressing 'L' triggers a dynamic response from nearby slimes.\
+- Slime AI Appearance\
+The Slime AI changes emoji and color according to their property and state.\
 
 
 ## Screenshots
@@ -59,4 +59,5 @@ The Slime AI changes emoji and color according to their property and state.
 
 
 ## 🔗 Links
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://www.shonosuge.com)
+[![Peoject Website](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](http://www.shonosuge.com/)
+[![Personal Website](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://wp2024.cs.hku.hk/fyp24011/)
