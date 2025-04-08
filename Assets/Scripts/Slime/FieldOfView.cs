@@ -1,3 +1,8 @@
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// (For Future work)
+/// Script for checking Slime's field of view for interaction with enviornment.
+/// -------------------------------------------------------------------///
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

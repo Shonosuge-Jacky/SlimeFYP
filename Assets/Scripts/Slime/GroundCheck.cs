@@ -1,5 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// Check Slime's ground touching
+/// -------------------------------------------------------------------///
 using UnityEngine;
 
 public class GroundCheck : MonoBehaviour

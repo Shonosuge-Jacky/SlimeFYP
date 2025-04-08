@@ -1,3 +1,8 @@
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// Change between OOP and ECS mode. On Update check for component ChangeGameModeToExploreEventComponent or ChangeGameModeToInspectEventComponent
+/// Change to respective mode according to component detected.
+/// -------------------------------------------------------------------///
 using Unity.Entities;
 using Unity.Collections;
 using Unity.Transforms;

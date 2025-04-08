@@ -1,3 +1,7 @@
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// Scriptable Object for storing player's configuration of the environment.
+/// -------------------------------------------------------------------///
 using System.Collections.Generic;
 using System;
 using UnityEngine;

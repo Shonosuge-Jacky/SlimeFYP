@@ -1,3 +1,7 @@
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// Responsible for Slime's Interact Action.
+/// -------------------------------------------------------------------///
 using BehaviorDesigner.Runtime;
 using UnityEngine;
 

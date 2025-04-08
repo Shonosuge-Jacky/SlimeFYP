@@ -1,5 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// (Debug Use)
+/// Control Slime's movement (for debugging in phase 1).
+/// -------------------------------------------------------------------///
 using UnityEngine;
 
 public class SlimeController : MonoBehaviour

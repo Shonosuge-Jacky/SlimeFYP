@@ -1,3 +1,7 @@
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// A scriptable object for saving floor grids object. This scriptble object is initialzed at Start. by GridDataSystem.
+/// -------------------------------------------------------------------///
 using System;
 using System.Collections.Generic;
 using UnityEngine;

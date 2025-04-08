@@ -1,3 +1,7 @@
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// Baker for initializing Slime's component.
+/// -------------------------------------------------------------------///
 using Unity.Entities;
 using UnityEngine;
 

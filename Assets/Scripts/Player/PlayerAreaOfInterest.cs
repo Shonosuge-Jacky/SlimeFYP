@@ -1,3 +1,8 @@
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// (Abandoned)
+/// Optimization for updating Slime only when its around player's area of interest.
+/// -------------------------------------------------------------------///
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

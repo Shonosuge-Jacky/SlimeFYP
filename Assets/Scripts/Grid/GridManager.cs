@@ -1,4 +1,7 @@
-
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// For OOP system to retreieve grid data accoding to position.
+/// -------------------------------------------------------------------///
 using Unity.Entities;
 using UnityEngine;
 using Unity.Mathematics;

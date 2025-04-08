@@ -1,3 +1,7 @@
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// Spawning ECS AI of slimes.
+/// -------------------------------------------------------------------///
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;

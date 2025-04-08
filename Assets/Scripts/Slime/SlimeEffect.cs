@@ -1,3 +1,7 @@
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// Show and unshow slime's overhead effect.
+/// -------------------------------------------------------------------///
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;

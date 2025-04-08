@@ -1,3 +1,7 @@
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// For updating slime's property with multi-thread jobs.
+/// -------------------------------------------------------------------///
 using Unity.Entities;
 using Unity.Burst;
 using UnityEngine;

@@ -1,3 +1,7 @@
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// For initializing Grid Data for ECS and OOP system and output a native HashMap.
+/// -------------------------------------------------------------------///
 using System;
 using Unity.Collections;
 using Unity.Entities;

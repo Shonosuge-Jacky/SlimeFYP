@@ -1,3 +1,8 @@
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// (For Future work)
+/// General Script for UI Button to make hovering effect.
+/// -------------------------------------------------------------------///
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;

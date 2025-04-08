@@ -1,3 +1,7 @@
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// Script for controlling Player's camera in both mode.
+/// -------------------------------------------------------------------///
 using UnityEngine;
 using DG.Tweening;
 using BehaviorDesigner.Runtime.Tasks.Unity.UnityCharacterController;

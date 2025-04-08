@@ -1,3 +1,7 @@
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// For updating slime's movement and position with multi-threaded jobs.
+/// -------------------------------------------------------------------///
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;

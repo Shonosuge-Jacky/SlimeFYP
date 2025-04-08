@@ -1,5 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
+/// -------------------------------------------------------------------///
+/// Script Documentation 
+/// (For Future work)
+/// Script for checking Slime's field of view for interaction with enviornment.
+/// -------------------------------------------------------------------///
 using UnityEngine;
 using UnityEngine.Events;
 

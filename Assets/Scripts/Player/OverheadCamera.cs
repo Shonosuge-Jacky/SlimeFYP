@@ -1,6 +1,6 @@
 /// -------------------------------------------------------------------///
 /// Script Documentation 
-/// Camera control for player in inspect mode.
+/// Camera control for player in inspect mode.  
 /// -------------------------------------------------------------------///
 using UnityEngine;
 
