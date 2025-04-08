@@ -11,7 +11,7 @@ As modern games demand increasing computational power, optimizing Artificial Int
 ## Instruction
 
 #### How to Install? 
-1. Download SlimeStimulator.zip in Build folder.
+1. Download SlimeStimulator.zip in Install folder.
 2. Unzip the folder.
 3. Double Click Slime.exe to open the game.
 
